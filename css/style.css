@@ -8,8 +8,10 @@
     --green-text: #5ae76a;
     --transparent-bg: rgba(0, 0, 0, 0.767);
     --title-size: 60px;
+    --mobile-title-size: 40px;
     --subtitle-size: 36px;
     --text-size: 26px;
+    --mobile-text-size: 18px;
     --card-text: 20px;
 }
 /* обнуление*/
@@ -180,6 +182,13 @@ html{
 .card__img {
     width: 100%;
 }
+.click__icon {
+    display: none;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    transform: rotateZ(-35deg);
+}
 .text__block {
     bottom: 0;
     width: 100%;
@@ -252,4 +261,46 @@ html{
 .footer__contacts a {
     display: block;
     margin: 0 0 0 10px;
+}
+
+@media screen and (max-width: 600px) {
+    .title{
+        font-size: var(--mobile-title-size);
+        text-align: center;
+        margin: 0 0 0 7px;
+        padding: 0 7px 0 0;
+    }
+    .subtitle{
+        text-align: center;
+    }
+    .text {
+        font-size: var(--mobile-text-size);
+    }
+    .card {
+        margin: 20px 0 0 0;
+        flex-basis: 100%;
+    }
+    .click__icon {
+        display: block;
+    }
+    .footer__contacts {
+        flex-direction: column;
+    }
+    .footer__text {
+        padding: 0 20px 5px 20px;
+    }
+    .footer__text::after {
+        top: 100%;
+        width: 100%;
+        height: 5px;
+    }
+    .contact__img  {
+        margin: 15px 0 0 0;
+    }
+    .footer__contacts a:first-child {
+        margin: 0;
+    }
+    .footer__contacts a img {
+        width: 30px;
+    }
 }
