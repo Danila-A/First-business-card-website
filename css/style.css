@@ -1,12 +1,13 @@
 :root {
     --white: #dfedf3;
-    --border: #30363d;
+    --border: #555a5f;
+    --border-hover: #8b949e;
     --link: #2581d3;
     --bg: #0d1117;
     --icon-bg: #30363d;
     --shadow: white;
     --green-text: #5ae76a;
-    --transparent-bg: rgba(0, 0, 0, 0.767);
+    --transparent-bg: rgba(0, 0, 0, 0.856);
     --title-size: 60px;
     --mobile-title-size: 40px;
     --subtitle-size: 36px;
@@ -93,6 +94,11 @@ html{
 .title {
     font-size: var(--title-size);
     font-weight: 700;
+    opacity: 0;
+    transition: opacity 3s;
+}
+.title.title__show {
+    opacity: 1;
 }
 .subtitle {
     font-size: var(--subtitle-size);
@@ -101,8 +107,19 @@ html{
 .text {
     font-size: var(--text-size);
 }
-.contact__icon {
-    fill: var(--white);
+.title__icon{
+    background-color: var(--icon-bg);
+    padding: 15px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    opacity: 0;
+    transition: opacity 3s;
+}
+.title__icon:hover{
+    border: 1px solid var(--border-hover);
+}
+.title__icon.title__show {
+    opacity: 1;
 }
 .container{
     width: 65%;
@@ -121,7 +138,6 @@ html{
 }
 /* Main section */
 .main__title {
-    background-color: var(--bg);
     height: 80vh;
     position: relative;
     flex-direction: column;
@@ -133,6 +149,15 @@ html{
     width: 90%;
     height: 2px;
     background-color: var(--border);    
+}
+.main__inner {
+    background-color: var(--transparent-bg);
+    border-radius: 10px;
+    border: 2px solid var(--border);
+}
+.main__inner .title {
+    margin: 20px 0 0 20px;
+    padding: 0 20px 20px 0;
 }
 .main__contacts {
     margin: 20px 0 0 0;
@@ -167,11 +192,19 @@ html{
 }
 .card {
     flex-basis: 300px;
+    height: 400px;
     flex-shrink: 0;
     flex-grow: 0;
     position: relative;
     margin: 20px 0 0 30px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
     overflow: hidden;
+    opacity: 0;
+    transition: opacity 3s;
+}
+.card.element__show {
+    opacity: 1;
 }
 .card:first-child {
     margin: 20px 0 0 0;
@@ -181,6 +214,8 @@ html{
 }
 .card__img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 .click__icon {
     display: none;
@@ -205,6 +240,7 @@ html{
     background-color: var(--transparent-bg);
 }
 .card__list {
+    padding: 0 10px 10px 0;
     position: absolute;
     top: 0;
     height: 100%;
@@ -213,8 +249,14 @@ html{
     transform: translateY(100%);
     transition: transform 0.5s;
 }
+li {
+    width: 100%;
+}
 .card__list p {
     margin: 10px 0 0 10px;
+    padding: 5px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
 }
 /* About section */
 .about {
@@ -262,7 +304,7 @@ html{
     display: block;
     margin: 0 0 0 10px;
 }
-
+/* Responsive */
 @media screen and (max-width: 600px) {
     .title{
         font-size: var(--mobile-title-size);
@@ -275,6 +317,14 @@ html{
     }
     .text {
         font-size: var(--mobile-text-size);
+    }
+    .main__title {
+        padding: 0 7px 7px 0;
+        background-size: cover;
+        background-position: center;
+    }
+    .main__inner {
+        margin: 7px 0 0 7px;
     }
     .card {
         margin: 20px 0 0 0;
