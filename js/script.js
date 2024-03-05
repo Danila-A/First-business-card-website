@@ -1,6 +1,6 @@
 // Анимация при загрузке
 let title = document.querySelector('.title');
-let link = document.querySelector('.contact__icon');
+let link = document.querySelector('.title__icon');
 // Анимация при скролле
 let elements = document.querySelectorAll('.element__animation');
 
